@@ -12,7 +12,8 @@ class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer',
                'dog', 'frog', 'horse', 'ship', 'truck']
 
 st.title("🚀 CIFAR-10 Image Classifier")
-st.write("Upload an image and the model will predict its class.")
+st.write('''Upload an image and the model will predict its class.
+         (Please upload 'airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck'.) ''')
 
 # Upload file
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
@@ -30,3 +31,4 @@ if uploaded_file is not None:
     # Prediction
     pred = np.argmax(model.predict(img_array))
     st.image(img_rgb, caption=f"Prediction: {class_names[pred]}", use_container_width=True)
+
